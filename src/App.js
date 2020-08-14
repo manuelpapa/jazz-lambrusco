@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import fetchWine from "./api/wine";
+import List from "./components/List";
+import ListItem from "./components/ListItem";
 
 function App() {
   const [allWines, setAllWines] = React.useState(null);
@@ -18,11 +20,15 @@ function App() {
     <div className="App">
       <header>Welcome to the JAZZ LAMBRUSCO</header>
       <main>
-        <ul>
+        <List>
           {allWines?.map((wine) => {
-            return console.log(wine.wine);
+            return (
+              <ListItem key={wine.lwin} href={wine.href}>
+                {wine.wine}
+              </ListItem>
+            );
           })}
-        </ul>
+        </List>
       </main>
       <footer>Footer</footer>
     </div>
