@@ -1,17 +1,9 @@
-.loadingScreen {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  background-image: var(--bg-gradient-light);
-}
-
 body {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: var(--bg-gradient-light);
 }
 .wineglass {
   height: 36px;

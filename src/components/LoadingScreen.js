@@ -3,17 +3,17 @@ import "./LoadingScreen.css";
 
 export default function LoadingScreen() {
   return (
-    <div class="loader">
+    <div className="loader">
       <ul>
         <li></li>
         <li></li>
         <li></li>
       </ul>
-      <div class="wineglass left">
-        <div class="top"></div>
+      <div className="wineglass left">
+        <div className="top"></div>
       </div>
-      <div class="wineglass right">
-        <div class="top"></div>
+      <div className="wineglass right">
+        <div className="top"></div>
       </div>
     </div>
   );

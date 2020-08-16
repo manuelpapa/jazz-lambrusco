@@ -35,7 +35,11 @@ export default function ResultScreen({ allWines }) {
           })}
         </List>
       </main>
-      <footer>Footer</footer>
+      <footer>
+        <a href="https://www.youtube.com/watch?v=AbSjwQAuhmE" target="blank">
+          No wine? Get beer 🍻
+        </a>
+      </footer>
     </div>
   );
 }
