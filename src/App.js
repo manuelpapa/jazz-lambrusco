@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import fetchWine from "./api/wine";
-import List from "./components/List";
-import ListItem from "./components/ListItem";
 import LoadingScreen from "./components/LoadingScreen";
+import ResultScreen from "./components/ResultScreen";
 
 function App() {
-  const [allWines, setAllWines] = React.useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [query, setQuery] = useState("");
+  const [allWines, setAllWines] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getWines() {
     const newWines = await fetchWine();
@@ -20,41 +18,10 @@ function App() {
     getWines();
   }, []);
 
-  if (isLoading || allWines === null) {
+  if (isLoading || allWines.length < 1) {
     return <LoadingScreen />;
   }
-  const filteredWines = allWines.filter((wine) => {
-    return wine.wine.toLowerCase().match(query.toLowerCase());
-  });
 
-  return (
-    <div className="app">
-      <header>
-        <small>Hello,</small>
-        <h2>What wine today?</h2>
-
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          className="header__input"
-          placeholder="🔎 Search for your favorite wine"
-        />
-      </header>
-
-      <main>
-        <List>
-          {filteredWines?.map((wine) => {
-            return (
-              <ListItem key={wine.lwin} href={wine.href} className="wineList">
-                {wine.wine}
-              </ListItem>
-            );
-          })}
-        </List>
-      </main>
-      <footer>Footer</footer>
-    </div>
-  );
+  return <ResultScreen allWines={allWines} />;
 }
-
 export default App;
