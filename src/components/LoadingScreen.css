@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   place-items: center;
-  background: var(--bg-gradient);
+  background-image: var(--bg-gradient-light);
 }
 .loadingScreen__icon {
   width: 30%;

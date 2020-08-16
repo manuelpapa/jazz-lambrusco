@@ -1,7 +1,7 @@
 .listItem {
   display: flex;
   padding: 10px;
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid #eeeeee;
   text-decoration: none;
   color: inherit;
   align-items: center;

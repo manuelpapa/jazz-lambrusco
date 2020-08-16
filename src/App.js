@@ -29,13 +29,15 @@ function App() {
 
   return (
     <div className="app">
-      <header className="header">
+      <header>
+        <small>Hello,</small>
         <h2>What wine today?</h2>
+
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           className="header__input"
-          placeholder="Search for your favorite wine"
+          placeholder="🔎 Search for your favorite wine"
         />
       </header>
 
