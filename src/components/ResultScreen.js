@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ResultScreen.css";
 import ListItem from "./ListItem";
 import List from "./List";
 

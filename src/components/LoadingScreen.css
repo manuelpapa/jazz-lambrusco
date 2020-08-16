@@ -5,6 +5,7 @@ body {
   align-items: center;
   height: 100vh;
 }
+
 .wineglass {
   height: 36px;
   position: relative;
@@ -34,7 +35,7 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: linear-gradient(transparent 50%, #f36e3e 50%);
+  background: linear-gradient(transparent 50%, #ff0844 50%);
 }
 .left .top:before {
   animation: rotate2 2s linear infinite;
