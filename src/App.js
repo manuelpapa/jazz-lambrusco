@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import fetchWine from "./api/wine";
+import LoadingScreen from "./components/LoadingScreen";
+import ResultScreen from "./components/ResultScreen";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [allWines, setAllWines] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  async function getWines() {
+    const newWines = await fetchWine();
+    setAllWines(newWines);
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    getWines();
+  }, []);
+
+  if (isLoading || allWines.length < 1) {
+    return <LoadingScreen />;
+  }
+
+  return <ResultScreen allWines={allWines} />;
+}
 export default App;
