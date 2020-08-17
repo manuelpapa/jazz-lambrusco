@@ -38,7 +38,10 @@ export default function ResultScreen({ allWines }) {
       </main>
       <footer>
         <a href="https://www.youtube.com/watch?v=AbSjwQAuhmE" target="blank">
-          No wine? Get beer 🍻
+          No wine? Get beer{" "}
+          <span role="img" aria-label="two beers in glass">
+            🍻
+          </span>
         </a>
       </footer>
     </div>
