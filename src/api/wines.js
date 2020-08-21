@@ -1,4 +1,4 @@
-export default async function fetchWine() {
+export default async function fetchWines() {
   const wineFetch = await fetch(
     "https://cors-anywhere.herokuapp.com/https://api.globalwinescore.com/globalwinescores/latest/",
     {
