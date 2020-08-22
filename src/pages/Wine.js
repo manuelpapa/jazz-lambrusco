@@ -40,31 +40,13 @@ export default function Wine() {
         <h2>{wine.name}</h2>
       </header>
       <div className="wineSingle">
-        <ul>
-          <li>Color: {wine.color}</li>
-          <li>Year: {wine.vintage}</li>
-          <li>Country: {wine.country}</li>
-          <li>Score: {wine.score}</li>
-        </ul>
+        <div>
+          <div>Color: {wine.color}</div>
+          <div>Year: {wine.year}</div>
+          <div>Country: {wine.country}</div>
+          <div>Score: {wine.score}</div>
+        </div>
       </div>
     </div>
   );
-
-  //TODO: Daten von API darstellen
-  // {fetchWine} anpassen
-  // useHistory einbinden
-
-  //   function HomeButton() {
-  //     let history = useHistory();
-
-  //     function handleClick() {
-  //       history.push("/wines");
-  //     }
-
-  //     return (
-  //       <button type="button" onClick={handleClick}>
-  //         Go home
-  //       </button>
-  //     );
-  //   }
 }
