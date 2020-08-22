@@ -3,7 +3,7 @@ import "../components/ResultScreen.css";
 import ListItem from "../components/ListItem";
 import List from "../components/List";
 import LoadingScreen from "../components/LoadingScreen";
-import fetchWines from "../api/wines";
+import { fetchWines } from "../api/wines";
 
 function Wines() {
   const [wines, setWines] = useState([]);
@@ -45,7 +45,11 @@ function Wines() {
         <main>
           <List>
             {filteredWines.map((wine) => (
-              <ListItem key={wine.lwin} href={wine.href} className="wineList">
+              <ListItem
+                key={wine.lwin}
+                href={`/wines/${wine.lwin_11}`}
+                className="wineList"
+              >
                 {wine.wine}
               </ListItem>
             ))}
