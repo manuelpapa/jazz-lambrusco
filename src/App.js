@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
-import fetchWine from "./api/wine";
-import LoadingScreen from "./components/LoadingScreen";
-import ResultScreen from "./components/ResultScreen";
+import Wines from "./pages/Wines";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Wine from "./pages/Wine";
 
 function App() {
-  const [allWines, setAllWines] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  async function getWines() {
-    const newWines = await fetchWine();
-    setAllWines(newWines);
-    setIsLoading(false);
-  }
-
-  useEffect(() => {
-    getWines();
-  }, []);
-
-  if (isLoading || allWines.length < 1) {
-    return <LoadingScreen />;
-  }
-
-  return <ResultScreen allWines={allWines} />;
+  return (
+    <Router>
+      <Switch>
+        <Route path="/wines/:lwin">
+          <Wine />
+        </Route>
+        <Route path="/wines">
+          <Wines />
+        </Route>
+        <Route path="/">
+          <Redirect to="/wines" />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
+
 export default App;
