@@ -39,7 +39,7 @@ function Wines() {
     padding: 10px;
   `;
 
-  const ListItem = styled.div`
+  const ListItem = styled.a`
     display: flex;
     padding: 15px;
     border-bottom: 1px solid #eeeeee;

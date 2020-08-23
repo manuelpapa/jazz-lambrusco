@@ -55,6 +55,7 @@ export default function Wine() {
     border-radius: 50px;
     align-self: end;
     background-image: var(--red-gradient);
+    cursor: pointer;
   `;
   const Footer = styled.div`
     display: flex;
