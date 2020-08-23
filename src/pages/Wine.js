@@ -36,7 +36,6 @@ export default function Wine() {
   return (
     <div>
       <header className="wineClass">
-        <button onClick={() => history.goBack()}>go back</button>
         <h2>{wine.name}</h2>
       </header>
       <div className="wineSingle">
@@ -47,6 +46,9 @@ export default function Wine() {
           <div>Score: {wine.score}</div>
         </div>
       </div>
+      <footer>
+        <button onClick={() => history.goBack()}>go back</button>
+      </footer>
     </div>
   );
 }

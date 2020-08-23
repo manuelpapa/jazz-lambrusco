@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../components/ResultScreen.css";
-import ListItem from "../components/ListItem";
 import List from "../components/List";
 import LoadingScreen from "../components/LoadingScreen";
 import { fetchWines } from "../api/wines";
-import styled from "@emotion/styled";
 import SearchInput from "../components/SearchInput";
+import styled from "@emotion/styled";
 
 function Wines() {
   const [wines, setWines] = useState([]);
@@ -30,12 +28,6 @@ function Wines() {
     return wine.wine.toLowerCase().match(query.toLowerCase());
   });
 
-  const Container = styled.div`
-    height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  `;
-
   const Header = styled.div`
     display: flex;
     flex-direction: column;
@@ -43,28 +35,50 @@ function Wines() {
     background-image: var(--bg-gradient);
   `;
 
+  const Main = styled.div`
+    padding: 10px;
+  `;
+
+  const ListItem = styled.div`
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #eeeeee;
+    text-decoration: none;
+    color: #36323f;
+    align-items: center;
+    font-size: 0.9em;
+  `;
+  const Footer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    background-image: var(--red-gradient);
+  `;
+
   return (
     <>
-      <Container>
-        <Header>
-          <small>Hello,</small>
-          <h2>What wine today?</h2>
-          <SearchInput value={query} onChange={(value) => setQuery(value)} />
-        </Header>
-        <main>
-          <List>
-            {filteredWines.map((wine) => (
-              <ListItem
-                key={wine.lwin}
-                href={`/wines/${wine.lwin_11}`}
-                className="wineList"
-              >
-                {wine.wine}
-              </ListItem>
-            ))}
-          </List>
-        </main>
-      </Container>
+      <Header>
+        <small>Hello,</small>
+        <h2>What wine today?</h2>
+        <SearchInput value={query} onChange={(value) => setQuery(value)} />
+      </Header>
+      <Main>
+        <List>
+          {filteredWines.map((wine) => (
+            <ListItem key={wine.lwin} href={`/wines/${wine.lwin_11}`}>
+              {wine.wine}
+            </ListItem>
+          ))}
+        </List>
+      </Main>
+      <Footer>
+        <a href="https://www.youtube.com/watch?v=AbSjwQAuhmE" target="blank">
+          No wine? Get beer{" "}
+          <span role="img" aria-label="two beers in glass">
+            🍻
+          </span>
+        </a>
+      </Footer>
     </>
   );
 }

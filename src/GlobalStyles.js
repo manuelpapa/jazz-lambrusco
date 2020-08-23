@@ -13,6 +13,9 @@ function GlobalStyles() {
         body {
           margin: 0;
           overflow: inherit;
+          height: 100vh;
+          display: grid;
+          grid-template-rows: auto 1fr auto;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
             "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
             "Helvetica Neue", sans-serif;
@@ -24,6 +27,8 @@ function GlobalStyles() {
           background-attachment: fixed;
         }
         :root {
+          background-blend-mode: multiply;
+          background-blend-mode: screen;
           --bg-gradient: linear-gradient(
             to top,
             #dad4ec 0%,
@@ -36,15 +41,12 @@ function GlobalStyles() {
             #dad4ec 1%,
             #f3e7e9 100%
           );
-
-          background-blend-mode: multiply;
-          background-blend-mode: screen;
-          --font-gradient: linear-gradient(33deg, #ff0844 0%, #ffb199 100%);
+          --red-gradient: linear-gradient(33deg, #ff0844 0%, #ffb199 100%);
           --bg-color: #fff;
         }
         h1 {
           font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-          background-image: var(--font-gradient);
+          background-image: var(--red-gradient);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-size: 2.2em;
@@ -53,7 +55,7 @@ function GlobalStyles() {
 
         h2 {
           font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-          background-image: var(--font-gradient);
+          background-image: var(--red-gradient);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-size: 2em;
