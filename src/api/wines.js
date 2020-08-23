@@ -23,18 +23,19 @@ export async function fetchWine(lwin) {
       headers: {
         Accept: "application/json",
         Authorization: "Token ebf0554796ea7868cb3b67e69986d90e25667416",
+        AccessControlAllowOrigin: "*",
       },
     }
   );
   const result = await response.json();
   console.log(result);
   const wine = {
-    name: result.wine,
-    color: result.color,
-    year: result.vintage,
-    country: result.country,
-    score: result.score,
+    name: result.results[0].wine,
+    color: result.results[0].color,
+    year: result.results[0].vintage,
+    country: result.results[0].country,
+    score: result.results[0].score,
   };
-  // console.log(wine);
+
   return wine;
 }
