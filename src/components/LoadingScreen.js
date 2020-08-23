@@ -4,11 +4,12 @@ import "./LoadingScreen.css";
 export default function LoadingScreen() {
   return (
     <div className="loader">
-      <ul>
+      {/* <ul>
         <li></li>
         <li></li>
         <li></li>
-      </ul>
+      </ul>  */}
+      LOADING
       <div className="wineglass left">
         <div className="top"></div>
       </div>
