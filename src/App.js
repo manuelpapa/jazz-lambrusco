@@ -8,22 +8,26 @@ import {
   Redirect,
 } from "react-router-dom";
 import Wine from "./pages/Wine";
+import GlobalStyles from "./GlobalStyles";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/wines/:lwin">
-          <Wine />
-        </Route>
-        <Route path="/wines">
-          <Wines />
-        </Route>
-        <Route path="/">
-          <Redirect to="/wines" />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <GlobalStyles />
+      <Router>
+        <Switch>
+          <Route path="/wines/:lwin">
+            <Wine />
+          </Route>
+          <Route path="/wines">
+            <Wines />
+          </Route>
+          <Route path="/">
+            <Redirect to="/wines" />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
