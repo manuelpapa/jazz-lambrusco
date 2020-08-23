@@ -90,7 +90,12 @@ function Wines() {
 //         <header>
 //           <small>Hello,</small>
 //           <h2>What wine today?</h2>
-//           <SearchInput value={query} onChange={(value) => setQuery(value)} />
+//           <input
+//             value={query}
+//             onChange={(event) => setQuery(event.target.value)}
+//             className="header__input"
+//             placeholder="🔎 Search for your favorite wine"
+//           />
 //         </header>
 //         <main>
 //           <List>

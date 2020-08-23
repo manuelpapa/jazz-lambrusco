@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Wines from "./pages/Wines";
 import {
   BrowserRouter as Router,

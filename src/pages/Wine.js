@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import LoadingScreen from "../components/LoadingScreen";
 import { fetchWine } from "../api/wines";
+import styled from "@emotion/styled";
 
 export default function Wine() {
   const { lwin } = useParams();
@@ -33,22 +34,90 @@ export default function Wine() {
     return <LoadingScreen />;
   }
 
+  const Header = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    background-image: var(--bg-gradient);
+  `;
+
+  const Main = styled.div`
+    padding: 20px;
+  `;
+
+  const Button = styled.div`
+    font-size: 0.9em;
+    color: #ffffff;
+    padding: 5px 15px 8px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    align-self: end;
+    background-image: var(--red-gradient);
+  `;
+  const Footer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+  `;
+
   return (
-    <div>
-      <header className="wineClass">
+    <>
+      <Header>
+        <small>Good choice!</small>
         <h2>{wine.name}</h2>
-      </header>
-      <div className="wineSingle">
-        <div>
-          <div>Color: {wine.color}</div>
-          <div>Year: {wine.year}</div>
-          <div>Country: {wine.country}</div>
-          <div>Score: {wine.score}</div>
-        </div>
-      </div>
-      <footer>
-        <button onClick={() => history.goBack()}>go back</button>
-      </footer>
-    </div>
+      </Header>
+      <Main>
+        <table>
+          <tbody>
+            <tr>
+              <td>Color:</td>
+              <td>
+                <b>{wine.color}</b>
+              </td>
+            </tr>
+            <tr>
+              <td>Year:</td>
+              <td>
+                <b>{wine.year}</b>
+              </td>
+            </tr>
+            <tr>
+              <td>Country:</td>
+              <td>
+                <b>{wine.country}</b>
+              </td>
+            </tr>
+            <tr>
+              <td>Score:</td>
+              <td>
+                <b>{wine.score}</b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </Main>
+      <Footer>
+        <Button onClick={() => history.goBack()}>back</Button>
+      </Footer>
+    </>
+
+    // <div>
+    //   <header className="wineClass">
+    //     <h2>{wine.name}</h2>
+    //   </header>
+    //   <div className="wineSingle">
+    //     <div>
+    //       <div>Color: {wine.color}</div>
+    //       <div>Year: {wine.year}</div>
+    //       <div>Country: {wine.country}</div>
+    //       <div>Score: {wine.score}</div>
+    //     </div>
+    //   </div>
+    //   <footer>
+    //     <button onClick={() => history.goBack()}>go back</button>
+    //   </footer>
+    // </div>
   );
 }

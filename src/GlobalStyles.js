@@ -10,11 +10,13 @@ function GlobalStyles() {
         *::after {
           box-sizing: border-box;
         }
+        html,
         body {
           margin: 0;
-          overflow: inherit;
-          height: 100vh;
+          /* overflow: inherit; */
+          min-height: 100vh;
           display: grid;
+          grid-template-columns: 100%;
           grid-template-rows: auto 1fr auto;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
             "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -71,6 +73,11 @@ function GlobalStyles() {
           text-decoration: none;
           font-size: 0.9em;
           color: #ffffff;
+        }
+        ul {
+          margin-left: 0;
+          padding-left: 10;
+          list-style: none;
         }
       `}
     />
