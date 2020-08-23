@@ -43,57 +43,14 @@ function Wines() {
     background-image: var(--bg-gradient);
   `;
 
-  // const Input = styled("input")`
-  //   font-size: 0.9em;
-  //   padding: 10px 15px;
-  //   margin-bottom: 10px;
-  //   border: none;
-  //   border-radius: 50px;
-  //   background-color: rgba(255, 255, 255, 0.4);
-  //   color: #888888;
-  // `;
-
-  //   return (
-  //     <>
-  //       <Container>
-  //         <Header>
-  //           <small>Hello,</small>
-  //           <h2>What wine today?</h2>
-
-  //           <input
-  //             value={query}
-  //             onChange={(event) => setQuery(event.target.value)}
-  //             className="header__input"
-  //             placeholder="🔎 Search for your favorite wine"
-  //           />
-  //         </Header>
-  //         <main>
-  //           <List>
-  //             {filteredWines.map((wine) => (
-  //               <ListItem
-  //                 key={wine.lwin}
-  //                 href={`/wines/${wine.lwin_11}`}
-  //                 className="wineList"
-  //               >
-  //                 {wine.wine}
-  //               </ListItem>
-  //             ))}
-  //           </List>
-  //         </main>
-  //       </Container>
-  //     </>
-  //   );
-  // }
-
-  // VORHER
   return (
     <>
-      <div className="app">
-        <header>
+      <Container>
+        <Header>
           <small>Hello,</small>
           <h2>What wine today?</h2>
           <SearchInput value={query} onChange={(value) => setQuery(value)} />
-        </header>
+        </Header>
         <main>
           <List>
             {filteredWines.map((wine) => (
@@ -107,9 +64,36 @@ function Wines() {
             ))}
           </List>
         </main>
-      </div>
+      </Container>
     </>
   );
 }
+
+// VORHER
+//   return (
+//     <>
+//       <div className="app">
+//         <header>
+//           <small>Hello,</small>
+//           <h2>What wine today?</h2>
+//           <SearchInput value={query} onChange={(value) => setQuery(value)} />
+//         </header>
+//         <main>
+//           <List>
+//             {filteredWines.map((wine) => (
+//               <ListItem
+//                 key={wine.lwin}
+//                 href={`/wines/${wine.lwin_11}`}
+//                 className="wineList"
+//               >
+//                 {wine.wine}
+//               </ListItem>
+//             ))}
+//           </List>
+//         </main>
+//       </div>
+//     </>
+//   );
+// }
 
 export default Wines;
