@@ -4,6 +4,35 @@ import LoadingScreen from "../components/LoadingScreen";
 import { fetchWine } from "../api/wines";
 import styled from "@emotion/styled";
 
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  background-image: var(--bg-gradient);
+`;
+
+const Main = styled.div`
+  padding: 20px;
+`;
+
+const Button = styled.div`
+  font-size: 0.9em;
+  color: #ffffff;
+  padding: 5px 15px 8px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  align-self: end;
+  background-image: var(--red-gradient);
+  cursor: pointer;
+`;
+const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+`;
+
 export default function Wine() {
   const { lwin } = useParams();
   const [wine, setWine] = useState(null);
@@ -33,35 +62,6 @@ export default function Wine() {
   if (loading || !wine) {
     return <LoadingScreen />;
   }
-
-  const Header = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 20px 20px;
-    background-image: var(--bg-gradient);
-  `;
-
-  const Main = styled.div`
-    padding: 20px;
-  `;
-
-  const Button = styled.div`
-    font-size: 0.9em;
-    color: #ffffff;
-    padding: 5px 15px 8px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    border: 1px solid #ffffff;
-    border-radius: 50px;
-    align-self: end;
-    background-image: var(--red-gradient);
-    cursor: pointer;
-  `;
-  const Footer = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 0px 20px;
-  `;
 
   return (
     <>
@@ -103,22 +103,5 @@ export default function Wine() {
         <Button onClick={() => history.goBack()}>back</Button>
       </Footer>
     </>
-
-    // <div>
-    //   <header className="wineClass">
-    //     <h2>{wine.name}</h2>
-    //   </header>
-    //   <div className="wineSingle">
-    //     <div>
-    //       <div>Color: {wine.color}</div>
-    //       <div>Year: {wine.year}</div>
-    //       <div>Country: {wine.country}</div>
-    //       <div>Score: {wine.score}</div>
-    //     </div>
-    //   </div>
-    //   <footer>
-    //     <button onClick={() => history.goBack()}>go back</button>
-    //   </footer>
-    // </div>
   );
 }
